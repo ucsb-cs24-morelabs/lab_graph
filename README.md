@@ -4,11 +4,27 @@ In this lab, you are going to implement the following functions:
 - void shortest_path(string source, string destination);
 
 # Getting started!
-Just clone this repository, you don't need an extra github repo for this lab
+Just clone this repository, and edit it! You don't need an extra github repo for this lab
 
 # Implementing functions
 ## void bfs(string source)
-Breath first search through the graph, and print out the nodes.
+Breath first search through the graph, and print out the nodes (implemented during lecture).
+
+Assume we have `{"A","B","C","D"}` as nodes, and we have edges:
+```
+addedge("A","B");
+addedge("A","C");
+addedge("B","D");
+addedge("C","D");
+addedge("A","D");
+```
+The expected output will be (notice there's a space at the beginning of each line):
+```
+ visited :A
+ visited :B
+ visited :C
+ visited :D
+```
 ## void shortest_path(string source, string destination)
 Outputs a shortest path starting from `source` to `destination` in following format:
 
@@ -29,9 +45,14 @@ If we remove the edge `A, D`, the `shortest_path("A","D")` will print
 ```
 Shortest path from A to D:
 A -> B -> D
-A -> C -> D
 ```
-`A -> B` first because the edge `A,B` is added earlier than `A,C`
+`A -> B -> D` not `A -> C -> D` because the edge `A,B` is added earlier than `A,C`
+
+If can't find a valid path, print `Not found`:
+```
+Shortest path from NO to F:
+Not found
+```
 
 # Have a autograder grade your work!
 Due to the limited access to grade scope, we will use SCOPEGRADE for this lab
